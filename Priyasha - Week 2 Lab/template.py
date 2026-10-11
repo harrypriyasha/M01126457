@@ -1,4 +1,5 @@
 """
+
 RECORD CHECK  -  my version
 ===========================
 
@@ -14,30 +15,27 @@ Delete these instructions as you replace them with your code.
 
 
 
-label = input("Please enter your label: ")      
-value = float(input('Please enter your value: '))     
-limit = float(input("Please enter the limit: "))    
+label = input("Please enter your label: ")   
+count = 0
+
+while label!= 'quit':
+    
+    value = float(input('Please enter your value: '))     
+    limit = float(input("Please enter the limit: "))    
 
 
 
+    difference = limit - value        
+    percent = (value/limit) * 100       
 
+    status = 'empty' 
 
-difference = limit - value        
-percent = (value/limit) * 100       
-
-
-
-
-status = 'empty' 
-
-if percent >= 100:
-    status ='OVER LIMIT'
-elif percent >= 90 and percent < 100:         
-    status ='WARNING'
-else:
-    status ='OK'
-
-
+    if percent >= 100:
+       status ='OVER LIMIT'
+    elif percent >= 90 and percent < 100:         
+       status ='WARNING'
+    else:
+        status ='OK'
 
 
 # =================================================================== OUTPUT
@@ -50,14 +48,26 @@ else:
 #                Keep count of how many came back OVER LIMIT and print that
 #                once, after the loop ends.
 
-print()
-print("=" * 34)
-print(f"  RECORD CHECK  -  {label}")
-print("=" * 34)
+    print()
+    print("=" * 34)
+    print(f"  RECORD CHECK  -  {label}")
+    print("=" * 34)
 
-# your report lines go here
+    print('  Used        : ',f"{value:>10.2f}")
+    print('  Total       : ',f"{limit:>10.2f}")
+    print('  Free        : ',f"{difference:>10.2f}")
+    print('  Percent     : ', f"{percent:>10.2f}", '%')
+    print('  Status      : ', f"{status:>10}")
 
-print("=" * 34)
+
+    print("=" * 34)
+    
+    if status == 'OVER LIMIT':                           #to count how many over limit status there is while the loop runs
+            count += 1
+            
+    label = input("Please enter your label: ")          #to let the user enter their next label
+            
+print('The count of over limit is:',count) 
 
 
 # ==========================================================================
