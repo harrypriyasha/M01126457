@@ -12,7 +12,7 @@ Work through the numbered sections in order. Each one tells you what it must do.
 Delete these instructions as you replace them with your code.
 """
 
-
+"""asking the user for inputs, then calculating and presenting the values, difference and percentage"""
 
 label = input('Please enter your name: ')
 first = float(input('Enter your first value: '))
