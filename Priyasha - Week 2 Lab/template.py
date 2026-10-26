@@ -13,24 +13,26 @@ Work through the numbered sections in order. Each one tells you what it must do.
 Delete these instructions as you replace them with your code.
 """
 
-
+"""checks records by calculating the difference and percentage
+used, assigning a status, and printing a report for each record"""
 
 label = input("Please enter your label: ")   
 count = 0
 
+# Repeat until the user enters 'quit'
 while label!= 'quit':
     
+    # Calculate the difference and percentage used
     value = float(input('Please enter your value: '))     
     limit = float(input("Please enter the limit: "))    
 
-
-
+   
     difference = limit - value        
     percent = (value/limit) * 100       
 
     status = 'empty' 
 
-    if percent >= 100:
+    if percent >= 100:                           # Determine the status based on the percentage
        status ='OVER LIMIT'
     elif percent >= 90 and percent < 100:         
        status ='WARNING'
