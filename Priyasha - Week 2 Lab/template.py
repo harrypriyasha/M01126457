@@ -22,14 +22,15 @@ count = 0
 # Repeat until the user enters 'quit'
 while label!= 'quit':
     
-    # Calculate the difference and percentage used
+    #asking the user for input and converting to data type float
     value = float(input('Please enter your value: '))     
     limit = float(input("Please enter the limit: "))    
 
-   
+   # Calculate the difference and percentage used
     difference = limit - value        
     percent = (value/limit) * 100       
 
+    #assigning status to empty
     status = 'empty' 
 
     if percent >= 100:                           # Determine the status based on the percentage
@@ -55,6 +56,7 @@ while label!= 'quit':
     print(f"  RECORD CHECK  -  {label}")
     print("=" * 34)
 
+    #printing the variables and using f string to format
     print('  Used        : ',f"{value:>10.2f}")
     print('  Total       : ',f"{limit:>10.2f}")
     print('  Free        : ',f"{difference:>10.2f}")
