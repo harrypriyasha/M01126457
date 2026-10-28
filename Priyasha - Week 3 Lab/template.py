@@ -58,11 +58,14 @@ def print_report(label,value, limit, difference,percent, status):
 #    - the first is TEXT      (a name, a hostname, an IP)  -> no conversion needed
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
- 
+
+#asking user to input label 
 label = input("Please enter your label: ")  
 count = 0                                           #initialise count to 0
 
-while label != 'quit':                                  #loop to calculate multiple records until quit is entered
+
+#loop to calculate multiple records until quit is entered
+while label != 'quit':                                 
     value = float(input('Please enter your value: '))     
     limit = float(input("Please enter the limit: "))   
 
@@ -75,8 +78,8 @@ while label != 'quit':                                  #loop to calculate multi
 #    Typical   : call check() to get the difference and percentage instead.
 
 
-    difference, percent = check(value,limit)
-    status = status_of(percent)
+    difference, percent = check(value,limit)            #assigning the output of the check funtion to variables, difference and percent
+    status = status_of(percent)                         #assining the output of the status_of function to variable status
 
 # =================================================================== OUTPUT
 # 4. Print the report.
@@ -94,6 +97,7 @@ while label != 'quit':                                  #loop to calculate multi
     print(f"  RECORD CHECK  -  {label}")
     print("=" * 34)
 
+    #calling the print_report function
     print_report(label,value, limit, difference, percent, status)
 
     print("=" * 34)
