@@ -54,22 +54,32 @@ class Record:
 #                your own data file, one record per line.
 
 """creating Records.txt file to store the records"""
+# Create Records.txt and store the record details
 with open('Records.txt', 'w')as f:
     f.write("R-01, 87.0, 100.0\n")
     f.write("R-02, 95.0, 100.0\n")
     f.write("R-03, 121.0, 100.0\n")
     f.write("R-04, 54.0, 100.0\n")
-    
+
+# Read records from a file and return a list of Record objects    
 def load_records(path):
     """reads records from a file and returns a list of Record objects"""
     new=[]              #new list to store the records
+    
     try: 
+        # Open the file and read each line
         with open(path)as r:
             for line in r:
+                # Split each line into label, value and limit
                 label, value, limit = line.strip().split(',')  
+                
+                # Create a Record object and add it to the list
                 record = Record(label, float(value), float(limit))
                 new.append(record)
+                      
         return new
+    
+    # Handle the error if the file cannot be found
     except FileNotFoundError:
         print('File was not found')
         
@@ -92,6 +102,7 @@ for record in records:
 #                as Week 4. If you want it to live ON the object instead,
 #                that is a stretch worth trying - but a variable is enough.)
 
+#initialisng the count to 0 
 over_limit_count = 0
 
 for record in records:
@@ -100,13 +111,14 @@ for record in records:
     print(f"  RECORD CHECK  -  {record.label}")
     print("=" * 34)
 
+    #printing the variables, using f string for formatting
     print(f"  Label:  {record.label:>10}")
     print(f"  Value:  {record.value:>10.2f}")
     print(f"  Limit:  {record.limit:>10.2f}")
     print(f"  Status: {record.status():>10}")
 
     if record.status() == "OVER LIMIT":
-        over_limit_count += 1
+        over_limit_count += 1           #incrementing the count if the status is OVER LIMIT
         
 
     print("=" * 34)
